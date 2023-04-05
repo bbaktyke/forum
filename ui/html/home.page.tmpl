@@ -1,0 +1,33 @@
+{{template "base" .}}
+{{define "title"}}Home{{end}}
+{{define "main"}}
+<div class="tags">
+    <h2>Latest POSTS</h2>
+    <div class="tag">
+        <a href="/category?c=General topic" class="category-home">General topic</a>
+        <a href="/category?c=Life_style" class="category-home">Life style</a>
+        <a href="/category?c=Food" class="category-home">Food</a>
+        <a href="/category?c=Sport" class="category-home">Sport</a>
+        <a href="/category?c=Fasion" class="category-home">Fassion</a>
+
+    </div>
+</div>
+
+{{range .Posts}}
+<a href="/post?id={{.ID}}" class="square_link">
+<div class='snippet'>
+    <div class='metadata'>
+        <strong>{{.Title}}</strong>
+        <span>#{{.ID}}</span>
+    </div>
+    <div class='metadata username'>
+        <a href="/category?c={{.Category}}" class="category-home">{{.Category}}</a>
+        <time>Created by {{.UserName}} at {{humanDate .Created_At}}</time>
+    </div>
+</div>
+</a>
+
+{{else}}
+<p>There's nothing to see here... yet!</p>
+{{end}}
+{{end}}

@@ -1,0 +1,40 @@
+{{template "base" .}}
+{{define "title"}}Update a POST{{end}}
+{{define "main"}}
+<form action='/post/update' method='Post'>
+    <input type="hidden" name="id" value="{{.Post.ID}}">
+    <div>
+        <label>Title:</label>
+        <input type='text' name='title' value='{{.Post.Title}}'>
+    </div>
+    <div>
+        <label>Description:</label>
+        <textarea name='description'>{{.Post.Description}}</textarea>
+    </div>
+     <div class="category">
+            <p>Choose category: </p>
+            <div class="category-item">
+                <input type="radio" id="general-topic" name="category" value="General topic" checked>
+                <label for="general-topic">General topic</label>
+            </div>
+            <div class="category-item">
+                <input type="radio" id="life-style" name="category"  value="Life style">
+                <label for="life-style">Life style</label>
+            </div>
+            <div class="category-item">
+                <input type="radio" id="food" name="category"  value="Food">
+                <label for="food">Food</label>
+            </div>
+            <div class="category-item">
+                <input type="radio" id="sport" name="category"  value="Sport">
+                <label for="sport">Sport</label>
+            </div>
+            <div class="category-item">
+                <input type="radio" id="fassion" name="category"  value="Fassion">
+                <label for="fassion">Fassion</label>
+            </div>
+    <div>
+        <input type='submit' value='Update post'>
+    </div>
+</form>
+{{end}}
